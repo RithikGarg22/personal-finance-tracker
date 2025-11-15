@@ -27,9 +27,9 @@ function CategoryPieChart({ transactionService }: CategoryPieChartProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const calculationService = new CalculationService();
-
   useEffect(() => {
+    const calculationService = new CalculationService();
+    
     const fetchCategoryData = async () => {
       try {
         setLoading(true);
@@ -57,7 +57,7 @@ function CategoryPieChart({ transactionService }: CategoryPieChartProps) {
     };
 
     fetchCategoryData();
-  }, [transactionService, calculationService]);
+  }, [transactionService]);
 
   // Custom tooltip
   const CustomTooltip = ({ active, payload }: any) => {
@@ -91,8 +91,8 @@ function CategoryPieChart({ transactionService }: CategoryPieChartProps) {
           <p className="text-gray-500 text-sm sm:text-base">No transaction data available</p>
         </div>
       ) : (
-        <div className="w-full" style={{ height: '320px', minHeight: '320px' }}>
-          <ResponsiveContainer width="100%" height="100%" minHeight={320} aria-label="Pie chart showing spending by category">
+        <div className="w-full" style={{ height: '400px' }}>
+          <ResponsiveContainer width="100%" height={400} aria-label="Pie chart showing spending by category">
             <PieChart>
               <Pie
                 data={chartData}
