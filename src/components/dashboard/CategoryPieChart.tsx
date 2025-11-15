@@ -91,8 +91,8 @@ function CategoryPieChart({ transactionService }: CategoryPieChartProps) {
           <p className="text-gray-500 text-sm sm:text-base">No transaction data available</p>
         </div>
       ) : (
-        <div className="w-full h-64 sm:h-80 md:h-96">
-          <ResponsiveContainer width="100%" height="100%" aria-label="Pie chart showing spending by category">
+        <div className="w-full" style={{ height: '320px', minHeight: '320px' }}>
+          <ResponsiveContainer width="100%" height="100%" minHeight={320} aria-label="Pie chart showing spending by category">
             <PieChart>
               <Pie
                 data={chartData}
